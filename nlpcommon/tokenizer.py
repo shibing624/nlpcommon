@@ -38,6 +38,30 @@ class Tokenizer(object):
         return res
 
 
+def sentence_segment(text, delimiters=('？', '?', '！', '!', '。', '；', '……', '…'), include_symbols=True):
+    """
+    Sentence segmentation
+    :param text: query
+    :param delimiters: set
+    :param include_symbols: bool
+    :return: list(word, idx)
+    """
+    result = []
+    delimiters = set([item for item in delimiters])
+    delimiters_str = '|'.join(delimiters)
+    blocks = re.split(delimiters_str, text)
+    start_idx = 0
+    for blk in blocks:
+        if not blk:
+            continue
+        result.append((blk, start_idx))
+        start_idx += len(blk)
+        if include_symbols and start_idx < len(text):
+            result.append((text[start_idx], start_idx))
+            start_idx += 1
+    return result
+
+
 def split_2_short_text(text, include_symbol=True):
     """
     长句切分为短句
