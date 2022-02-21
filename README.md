@@ -104,11 +104,11 @@ output:
 如果你在研究中使用了nlpcommon，请按如下格式引用：
 
 ```latex
-@software{nlpcommon,
-  author = {Xu Ming},
-  title = {nlpcommon: A Tool for Text NLP},
-  year = {2021},
-  url = {https://github.com/shibing624/nlpcommon},
+@misc{nlpcommon,
+  title={nlpcommon: Common tool for text NLP},
+  author={Ming Xu},
+  howpublished={https://github.com/shibing624/nlpcommon},
+  year={2022}
 }
 ```
 
